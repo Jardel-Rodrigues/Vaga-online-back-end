@@ -58,7 +58,7 @@ public class UserService implements UserDetailsService{
 			entity = userRepository.save(entity);
 			return new UserDTO(entity);
 		} catch (Exception e) {
-			throw new ResourceNotFoundException("Id not fount " + id);
+			throw new ResourceNotFoundException(String.format("%s not fount ", id));
 		}
 	}
 	
@@ -91,8 +91,10 @@ public class UserService implements UserDetailsService{
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {		
+		
 		List<UserDetailsProjection> result = userRepository.searchUserAndRolesByEmail(username);			
-		if(result.size() == 0) {
+		
+		if(result.isEmpty()) {
 			throw new UsernameNotFoundException("User not found");
 		}		
 		User user = new User();

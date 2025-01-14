@@ -45,7 +45,9 @@ public class AuthService {
 	
 	@Transactional
 	public void createRecoverToken(EmailDTO dto) {
+		
 		User user = userRepository.findByEmail(dto.getEmail());
+		
 		if (user == null) {
 			throw new ResourceNotFoundException("Email not found");
 		}
@@ -67,7 +69,7 @@ public class AuthService {
 	public void saveNewPassword(NewPasswordDTO dto) {
 		List<PasswordRecover> list = passwordRecoverRepository.searchValidTokens(dto.getToken(), Instant.now());
 
-		if (list.size() == 0) {
+		if (list.isEmpty()) {
 			throw new ResourceNotFoundException("Invalid token");
 		}
 

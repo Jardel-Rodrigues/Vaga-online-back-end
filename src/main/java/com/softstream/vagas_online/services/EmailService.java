@@ -12,7 +12,7 @@ import com.softstream.vagas_online.services.exceptions.EmailException;
 @Service
 public class EmailService {
 	
-	@Value("spring.mail.username")
+	@Value("${spring.mail.username}")
 	private String emailFrom;
 	
 	@Autowired
@@ -26,7 +26,8 @@ public class EmailService {
 			messege.setSubject(subject);
 			messege.setText(body);
 			emailSender.send(messege);
-		} catch (MailException e) {
+		} 
+		catch (MailException e) {
 			throw new EmailException("Failed to send email");
 		}
 	}

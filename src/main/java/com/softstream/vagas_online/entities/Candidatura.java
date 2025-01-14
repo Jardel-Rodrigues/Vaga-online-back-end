@@ -30,9 +30,8 @@ import lombok.Setter;
 @Table(name = "tb_candidaturas")
 public class Candidatura {
 	
-	@Builder.Default
 	@EmbeddedId
-	private CandidaturaPK id = new CandidaturaPK();
+	private CandidaturaPK id;
 	
     @Builder.Default
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")

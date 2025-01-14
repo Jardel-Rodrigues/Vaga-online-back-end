@@ -29,13 +29,13 @@ import jakarta.validation.Valid;
 public class VagaController {
 	
 	@Autowired
-	private VagaService vagaService;
+	private VagaService service;
 	
 	@SecurityRequirement(name = "bearerAuth")
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_RH')")
 	@PostMapping(value = "/criar-vaga", produces = "application/json")
 	public ResponseEntity<VagaDTO> createVacancy(@Valid @RequestBody VagaDTO dto) {
-		VagaDTO newDto = vagaService.createVacancy(dto);
+		VagaDTO newDto = service.createVacancy(dto);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newDto.getId()).toUri();
 		return ResponseEntity.created(uri).body(newDto);
 	}
@@ -43,8 +43,10 @@ public class VagaController {
 	@SecurityRequirement(name = "bearerAuth")
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_RH')")
 	@PutMapping(value = "/atualizar-vaga/{id}", produces = "application/json")
-	public ResponseEntity<VagasDisponivelDTO> updateVacance(@PathVariable Long id, @Valid @RequestBody VagaDTO dto){
-		VagasDisponivelDTO newDto = vagaService.updateVacance(id, dto);
+	public ResponseEntity<VagasDisponivelDTO> updateVacance(
+			@PathVariable Long id, 
+			@Valid @RequestBody VagaDTO dto) {
+		VagasDisponivelDTO newDto = service.updateVacance(id, dto);
 		return ResponseEntity.ok().body(newDto);
 	}
 	
@@ -52,16 +54,17 @@ public class VagaController {
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@GetMapping(value = "/buscar-todas-as-vagas", produces = "application/json")
 	public ResponseEntity<Page<VagaDTO>> searchAllVacances(Pageable pageable){
-		Page<VagaDTO> page = vagaService.searchAllVacances(pageable);
+		Page<VagaDTO> page = service.searchAllVacances(pageable);
 		return ResponseEntity.ok().body(page);
 	}
 	
 	@SecurityRequirement(name = "bearerAuth")
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_CANDIDATO', 'ROLE_RH', 'ROLE_GERENTE')")
 	@GetMapping(value = "/buscar-vagas-aberta", produces = "application/json")
-	public ResponseEntity<Page<VagasDisponivelDTO>> searchOpenVacances(
-			@RequestParam(defaultValue = "") String titulo, @RequestParam(defaultValue = "") String local,  Pageable pageable) {
-		Page<VagasDisponivelDTO> page = vagaService.searchOpenVacances(titulo, local, pageable);
+	public ResponseEntity<Page<VagasDisponivelDTO>> searchOpenVacances (
+			@RequestParam(defaultValue = "") String titulo, 
+			@RequestParam(defaultValue = "") String local, Pageable pageable) {
+		Page<VagasDisponivelDTO> page = service.searchOpenVacances(titulo, local, pageable);
 		return ResponseEntity.ok().body(page);
 	}
 	
