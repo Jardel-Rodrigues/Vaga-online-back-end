@@ -23,7 +23,7 @@ public class VagaService {
 	@Transactional(value = TxType.REQUIRED)
 	public VagaDTO createVacancy(VagaDTO dto) {
 		Vaga entity = new Vaga();
-		copyDtoToEntity(dto, entity);
+		copyDtoToEntity(entity, dto);
 		entity = vagaRepository.save(entity);
 		return new VagaDTO(entity);
 	}
@@ -32,7 +32,7 @@ public class VagaService {
 	public VagasDisponivelDTO updateVacance(Long id, VagaDTO dto) {
 		try {
 			Vaga entity = vagaRepository.getReferenceById(id);
-			copyDtoToEntity(dto, entity);
+			copyDtoToEntity(entity, dto);
 			return new VagasDisponivelDTO(entity);
 		} catch (Exception e) {
 			throw new ResourceNotFoundException("Id not found" + id);
@@ -50,7 +50,7 @@ public class VagaService {
 		return page.map(x -> new VagasDisponivelDTO(x));
 	}
 	
-	public void copyDtoToEntity(VagaDTO dto, Vaga entity) {
+	public void copyDtoToEntity(Vaga entity, VagaDTO dto) {
 		entity.setTitulo(dto.getTitulo());
 		entity.setDescricao(dto.getDescricao());
 		entity.setRequisitos(dto.getRequisitos());
