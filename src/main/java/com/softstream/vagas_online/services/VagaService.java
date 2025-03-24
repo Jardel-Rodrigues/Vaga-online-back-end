@@ -21,7 +21,7 @@ public class VagaService {
 	private VagaRepository vagaRepository;
 	
 	@Transactional(value = TxType.REQUIRED)
-	public VagaDTO createVacancy(VagaDTO dto) {
+	public VagaDTO criarVaga(VagaDTO dto) {
 		Vaga entity = new Vaga();
 		copyDtoToEntity(entity, dto);
 		entity = vagaRepository.save(entity);
@@ -29,7 +29,7 @@ public class VagaService {
 	}
 	
 	@Transactional(value = TxType.REQUIRED)
-	public VagasDisponivelDTO updateVacance(Long id, VagaDTO dto) {
+	public VagasDisponivelDTO atualizarVaga(Long id, VagaDTO dto) {
 		try {
 			Vaga entity = vagaRepository.getReferenceById(id);
 			copyDtoToEntity(entity, dto);
@@ -40,12 +40,12 @@ public class VagaService {
 	}
 	
 	@Transactional(value = TxType.SUPPORTS)
-	public Page<VagaDTO> searchAllVacances(Pageable pageable) {
+	public Page<VagaDTO> buscarTodasVagas(Pageable pageable) {
 		Page<Vaga> page = vagaRepository.findAll(pageable);
 		return page.map(x -> new VagaDTO(x));
 	}
 	
-	public Page<VagasDisponivelDTO> searchOpenVacances(String titulo, String local, Pageable pageable) {
+	public Page<VagasDisponivelDTO> buscarVagasAberta(String titulo, String local, Pageable pageable) {
 		Page<Vaga> page = vagaRepository.searchOpenVacances(titulo, local, pageable);
 		return page.map(x -> new VagasDisponivelDTO(x));
 	}
