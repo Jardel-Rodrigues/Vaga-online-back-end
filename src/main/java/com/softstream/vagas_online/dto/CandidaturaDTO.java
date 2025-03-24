@@ -31,4 +31,14 @@ public class CandidaturaDTO {
         dataCandidatura = entity.getDataCandidatura();
         status = entity.getStatus();
     }
+    
+//	public CandidaturaDTO copyEntityToDto() {
+//		return builder()
+//				.userId(userId)
+//				.vagaId(vagaId)
+//				.dataCandidatura(dataCandidatura)
+//				.status(status)
+//				.build();
+//	}
+    
 }

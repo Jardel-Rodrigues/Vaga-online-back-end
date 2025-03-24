@@ -31,6 +31,22 @@ public class CandidaturaService {
 	private UserService userService;
 	
 	@Transactional(value = TxType.REQUIRED)
+//	public CandidaturaDTO enviarCandidatura(CandidaturaDTO dto) {
+//	    Candidatura entity = new Candidatura();
+//	    copyDtoToEntity(dto, entity);
+//	    entity = candidaturaRepository.save(entity);
+//	    vagaRepository.fecharVaga(dto.getVagaId());
+//
+//	    // Utilize o método copyEntityToDto() para construir o DTO a partir da entidade
+//	    CandidaturaDTO candidaturaDTO = CandidaturaDTO.builder()
+//	            .userId(entity.getUserId())
+//	            .vagaId(entity.getVagaId())
+//	            .dataCandidatura(entity.getDataCandidatura())
+//	            .status(entity.getStatus())
+//	            .build();
+//	    return candidaturaDTO;
+//	}
+	
 	public CandidaturaDTO enviarCandidatura (CandidaturaDTO dto) {
 		Candidatura entity = new Candidatura();
 		copyDtoToEntity(dto, entity);
