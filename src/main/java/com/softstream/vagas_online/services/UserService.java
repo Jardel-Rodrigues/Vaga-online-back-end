@@ -58,7 +58,7 @@ public class UserService implements UserDetailsService{
 			entity = userRepository.save(entity);
 			return new UserDTO(entity);
 		} catch (Exception e) {
-			throw new ResourceNotFoundException(String.format("%s not fount ", id));
+			throw new ResourceNotFoundException("%s not fount ".formatted(id));
 		}
 	}
 	

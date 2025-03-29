@@ -1,5 +1,6 @@
 package com.softstream.vagas_online.entities;
 
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
@@ -33,7 +34,8 @@ import lombok.Setter;
 @Entity
 @Table(name = "tb_user")
 public class User implements UserDetails {
-	private static final long serialVersionUID = 1L;
+    @Serial
+    private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

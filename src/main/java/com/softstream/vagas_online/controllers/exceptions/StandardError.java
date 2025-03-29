@@ -1,5 +1,6 @@
 package com.softstream.vagas_online.controllers.exceptions;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.time.Instant;
 
@@ -13,7 +14,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class StandardError implements Serializable {
-	private static final long serialVersionUID = 1L;
+    @Serial
+    private static final long serialVersionUID = 1L;
 
 	private Instant timestamp;
 	private Integer status;

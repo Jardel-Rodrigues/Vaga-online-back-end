@@ -72,21 +72,47 @@ public class AuthorizationServerConfig {
 	
 	@Autowired
     private CorsConfigurationSource corsConfigurationSource;
-
+	
+//	@Bean
+//	@Order(2) // Autentica o usuário
+//	SecurityFilterChain asSecurityFilterChain(HttpSecurity http) throws Exception {
+//	    OAuth2AuthorizationServerConfigurer authorizationServerConfigurer = new OAuth2AuthorizationServerConfigurer();
+//
+//	    // Configura o HttpSecurity com o authorizationServerConfigurer
+//	    http.securityMatcher(authorizationServerConfigurer.getEndpointsMatcher())
+//	        .authorizeHttpRequests(authorize -> authorize.anyRequest().authenticated())
+//	        .csrf(csrf -> csrf.ignoringRequestMatchers(authorizationServerConfigurer.getEndpointsMatcher()))
+//	        .cors(cors -> cors.configurationSource(corsConfigurationSource))
+//	        .with(authorizationServerConfigurer, configurer -> {
+//	            configurer.tokenEndpoint(tokenEndpoint -> tokenEndpoint
+//	                .accessTokenRequestConverter(new CustomPasswordAuthenticationConverter())
+//	                .authenticationProvider(new CustomPasswordAuthenticationProvider(
+//	                    authorizationService(), tokenGenerator(), userDetailsService, passwordEncoder)));
+//	        });
+//
+//	    http.oauth2ResourceServer(oauth2ResourceServer -> oauth2ResourceServer.jwt(Customizer.withDefaults()));
+//
+//	    return http.build();
+//	}
+	
 	@Bean
-	@Order(2) // Autentica o user
+	@Order(2) // Autentica o usuário
 	SecurityFilterChain asSecurityFilterChain(HttpSecurity http) throws Exception {
-		OAuth2AuthorizationServerConfiguration.applyDefaultSecurity(http);
+	    OAuth2AuthorizationServerConfigurer authorizationServerConfigurer = new OAuth2AuthorizationServerConfigurer();
 
-		http.cors(cors -> cors.configurationSource(corsConfigurationSource));
-		
-		http.getConfigurer(OAuth2AuthorizationServerConfigurer.class)
-			.tokenEndpoint(tokenEndpoint -> tokenEndpoint
-				.accessTokenRequestConverter(new CustomPasswordAuthenticationConverter())
-				.authenticationProvider(new CustomPasswordAuthenticationProvider(authorizationService(), tokenGenerator(), userDetailsService, passwordEncoder)));
+	    http.securityMatcher(authorizationServerConfigurer.getEndpointsMatcher())
+	        .with(authorizationServerConfigurer, configurer -> {
+	            configurer.tokenEndpoint(tokenEndpoint -> tokenEndpoint
+	                .accessTokenRequestConverter(new CustomPasswordAuthenticationConverter())
+	                .authenticationProvider(new CustomPasswordAuthenticationProvider(
+	                    authorizationService(), tokenGenerator(), userDetailsService, passwordEncoder)));
+	        });
 
-		http.oauth2ResourceServer(oauth2ResourceServer -> oauth2ResourceServer.jwt(Customizer.withDefaults()));
-		return http.build();
+	    http.cors(cors -> cors.configurationSource(corsConfigurationSource));
+
+	    http.oauth2ResourceServer(oauth2ResourceServer -> oauth2ResourceServer.jwt(Customizer.withDefaults()));
+
+	    return http.build();
 	}
 
 	@Bean
