@@ -43,9 +43,7 @@ public class VagaController {
 	@SecurityRequirement(name = "bearerAuth")
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_RH')")
 	@PutMapping(value = "/atualizar-vaga/{id}", produces = "application/json")
-	public ResponseEntity<VagasDisponivelDTO> atualizarVaga(
-			@PathVariable Long id, 
-			@Valid @RequestBody VagaDTO dto) {
+	public ResponseEntity<VagasDisponivelDTO> atualizarVaga(@PathVariable Long id, @Valid @RequestBody VagaDTO dto) {
 		VagasDisponivelDTO newDto = service.atualizarVaga(id, dto);
 		return ResponseEntity.ok().body(newDto);
 	}
@@ -62,7 +60,7 @@ public class VagaController {
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_CANDIDATO', 'ROLE_RH', 'ROLE_GERENTE')")
 	@GetMapping(value = "/buscar-vagas-aberta", produces = "application/json")
 	public ResponseEntity<Page<VagasDisponivelDTO>> buscarVagasAberta (
-			@RequestParam(defaultValue = "") String titulo, 
+			@RequestParam(defaultValue = "") String titulo,
 			@RequestParam(defaultValue = "") String local, Pageable pageable) {
 		Page<VagasDisponivelDTO> page = service.buscarVagasAberta(titulo, local, pageable);
 		return ResponseEntity.ok().body(page);

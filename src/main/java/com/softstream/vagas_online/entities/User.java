@@ -34,6 +34,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "tb_user")
 public class User implements UserDetails {
+	
     @Serial
     private static final long serialVersionUID = 1L;
 

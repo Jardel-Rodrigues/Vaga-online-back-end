@@ -1,5 +1,7 @@
 package com.softstream.vagas_online.entities;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.ZoneId;
 
@@ -28,8 +30,11 @@ import lombok.Setter;
 @Builder
 @Entity
 @Table(name = "tb_candidaturas")
-public class Candidatura {
+public class Candidatura implements Serializable {
 	
+	@Serial
+	private static final long serialVersionUID = 1L;
+
 	@EmbeddedId
 	private CandidaturaPK id;
 	

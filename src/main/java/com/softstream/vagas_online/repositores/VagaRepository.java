@@ -14,7 +14,7 @@ import com.softstream.vagas_online.entities.Vaga;
 public interface VagaRepository extends JpaRepository<Vaga, Long> {
 
 	@Query("select obj from Vaga obj where obj.status = 0 and upper(obj.titulo) like upper(concat('%', :titulo, '%')) and upper(obj.local) like upper(concat('%', :local, '%'))")
-	Page<Vaga> searchOpenVacances(@Param(value = "titulo") String titulo, @Param(value = "local") String local, Pageable pageable);
+	Page<Vaga> buscarVagasAberta(@Param(value = "titulo") String titulo, @Param(value = "local") String local, Pageable pageable);
 	
 	@Modifying
 	@Query(nativeQuery = true, value = """

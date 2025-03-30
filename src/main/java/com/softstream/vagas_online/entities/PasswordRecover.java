@@ -1,5 +1,7 @@
 package com.softstream.vagas_online.entities;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.time.Instant;
 
 import jakarta.persistence.Column;
@@ -20,7 +22,10 @@ import lombok.Setter;
 @EqualsAndHashCode
 @Entity
 @Table(name = "tb_password_recover")
-public class PasswordRecover {
+public class PasswordRecover implements Serializable {
+
+	@Serial
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -46,7 +46,7 @@ public class VagaService {
 	}
 	
 	public Page<VagasDisponivelDTO> buscarVagasAberta(String titulo, String local, Pageable pageable) {
-		Page<Vaga> page = vagaRepository.searchOpenVacances(titulo, local, pageable);
+		Page<Vaga> page = vagaRepository.buscarVagasAberta(titulo, local, pageable);
 		return page.map(x -> new VagasDisponivelDTO(x));
 	}
 	

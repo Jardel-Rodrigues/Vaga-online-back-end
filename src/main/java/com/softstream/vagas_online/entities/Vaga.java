@@ -33,6 +33,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "tb_vagas")
 public class Vaga implements Serializable {
+	
     @Serial
     private static final long serialVersionUID = 1L;
 		

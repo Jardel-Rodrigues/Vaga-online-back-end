@@ -23,6 +23,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "tb_role")
 public class Role implements GrantedAuthority {
+	
     @Serial
     private static final long serialVersionUID = 1L;
 
