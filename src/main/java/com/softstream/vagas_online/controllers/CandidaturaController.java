@@ -30,7 +30,7 @@ public class CandidaturaController {
 	@SecurityRequirement(name = "bearerAuth")
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@PostMapping(value = "/enviar-candidatura", produces = "application/json")
-	public ResponseEntity<CandidaturaDTO> enviarCandidatura (@RequestBody CandidaturaDTO dto){
+	public ResponseEntity<CandidaturaDTO> enviarCandidatura (@RequestBody CandidaturaDTO dto) {
 		CandidaturaDTO newDto = candidaturaService.enviarCandidatura(dto);
 		URI uri = ServletUriComponentsBuilder
 				.fromCurrentRequest()
