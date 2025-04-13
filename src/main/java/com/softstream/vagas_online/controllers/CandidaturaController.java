@@ -32,8 +32,11 @@ public class CandidaturaController {
 	@PostMapping(value = "/enviar-candidatura", produces = "application/json")
 	public ResponseEntity<CandidaturaDTO> enviarCandidatura (@RequestBody CandidaturaDTO dto){
 		CandidaturaDTO newDto = candidaturaService.enviarCandidatura(dto);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/user/{userId}/vaga/{vagaId}")
-				.buildAndExpand(newDto.getUserId(), newDto.getVagaId()).toUri();
+		URI uri = ServletUriComponentsBuilder
+				.fromCurrentRequest()
+				.path("/user/{userId}/vaga/{vagaId}")
+				.buildAndExpand(newDto.getUserId(), newDto.getVagaId())
+				.toUri();
 		return ResponseEntity.created(uri).body(newDto);
 	}
 	

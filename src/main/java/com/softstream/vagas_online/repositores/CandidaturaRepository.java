@@ -7,4 +7,5 @@ import com.softstream.vagas_online.entities.pk.CandidaturaPK;
 
 public interface CandidaturaRepository extends JpaRepository<Candidatura, CandidaturaPK> {
 
+
 }
