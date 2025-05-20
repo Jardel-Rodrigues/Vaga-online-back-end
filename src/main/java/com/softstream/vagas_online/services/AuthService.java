@@ -14,8 +14,8 @@ import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.softstream.vagas_online.dto.EmailDTO;
-import com.softstream.vagas_online.dto.NewPasswordDTO;
+import com.softstream.vagas_online.dtos.EmailDTO;
+import com.softstream.vagas_online.dtos.NewPasswordDTO;
 import com.softstream.vagas_online.entities.PasswordRecover;
 import com.softstream.vagas_online.entities.User;
 import com.softstream.vagas_online.repositores.PasswordRecoverRepository;

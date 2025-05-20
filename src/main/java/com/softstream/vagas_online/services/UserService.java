@@ -10,10 +10,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.softstream.vagas_online.dto.RoleDTO;
-import com.softstream.vagas_online.dto.UserDTO;
-import com.softstream.vagas_online.dto.UserInsertDTO;
-import com.softstream.vagas_online.dto.UserUpdateDTO;
+import com.softstream.vagas_online.dtos.RoleDTO;
+import com.softstream.vagas_online.dtos.user.UserDTO;
+import com.softstream.vagas_online.dtos.user.UserInsertDTO;
+import com.softstream.vagas_online.dtos.user.UserUpdateDTO;
 import com.softstream.vagas_online.entities.Role;
 import com.softstream.vagas_online.entities.User;
 import com.softstream.vagas_online.projections.UserDetailsProjection;

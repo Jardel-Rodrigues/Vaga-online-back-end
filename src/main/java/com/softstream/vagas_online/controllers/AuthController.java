@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.softstream.vagas_online.dto.EmailDTO;
-import com.softstream.vagas_online.dto.NewPasswordDTO;
+import com.softstream.vagas_online.dtos.EmailDTO;
+import com.softstream.vagas_online.dtos.NewPasswordDTO;
 import com.softstream.vagas_online.services.AuthService;
 
 import jakarta.validation.Valid;

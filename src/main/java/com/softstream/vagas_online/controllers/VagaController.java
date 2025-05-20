@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.softstream.vagas_online.dto.VagaDTO;
-import com.softstream.vagas_online.dto.VagasDisponivelDTO;
+import com.softstream.vagas_online.dtos.vaga.VagaDTO;
+import com.softstream.vagas_online.dtos.vaga.VagasDisponivelDTO;
 import com.softstream.vagas_online.services.VagaService;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;

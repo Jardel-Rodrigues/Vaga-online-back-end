@@ -5,9 +5,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.softstream.vagas_online.dto.CandidaturaDTO;
-import com.softstream.vagas_online.dto.UserDTO;
-import com.softstream.vagas_online.dto.VagaMinDTO;
+import com.softstream.vagas_online.dtos.CandidaturaDTO;
+import com.softstream.vagas_online.dtos.user.UserDTO;
+import com.softstream.vagas_online.dtos.vaga.VagaMinDTO;
 import com.softstream.vagas_online.entities.Candidatura;
 import com.softstream.vagas_online.entities.User;
 import com.softstream.vagas_online.entities.Vaga;

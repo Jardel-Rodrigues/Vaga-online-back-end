@@ -1,8 +1,9 @@
-package com.softstream.vagas_online.dto;
+package com.softstream.vagas_online.dtos.user;
 
 import java.util.HashSet;
 import java.util.Set;
 
+import com.softstream.vagas_online.dtos.RoleDTO;
 import com.softstream.vagas_online.entities.User;
 
 import jakarta.validation.constraints.Email;
@@ -27,7 +28,7 @@ public class UserDTO {
 	@NotBlank(message = "Campo obrigatório")
 	private String email;
 	
-	@Size(min = 6, max = 8)
+	@Size(min = 6, max = 16)
 	@NotBlank(message = "Campo obrigatório")
 	private String password;
 	

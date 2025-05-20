@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.softstream.vagas_online.controllers.exceptions.FieldMessage;
-import com.softstream.vagas_online.dto.UserInsertDTO;
+import com.softstream.vagas_online.dtos.user.UserInsertDTO;
 import com.softstream.vagas_online.entities.User;
 import com.softstream.vagas_online.repositores.UserRepository;
 

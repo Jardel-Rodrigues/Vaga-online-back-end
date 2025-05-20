@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.softstream.vagas_online.dto.CandidaturaDTO;
-import com.softstream.vagas_online.dto.VagaMinDTO;
+import com.softstream.vagas_online.dtos.CandidaturaDTO;
+import com.softstream.vagas_online.dtos.vaga.VagaMinDTO;
 import com.softstream.vagas_online.services.CandidaturaService;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
@@ -35,8 +35,7 @@ public class CandidaturaController {
 		URI uri = ServletUriComponentsBuilder
 				.fromCurrentRequest()
 				.path("/user/{userId}/vaga/{vagaId}")
-				.buildAndExpand(newDto.getUserId(), newDto.getVagaId())
-				.toUri();
+				.buildAndExpand(newDto.getUserId(), newDto.getVagaId()).toUri();
 		return ResponseEntity.created(uri).body(newDto);
 	}
 	

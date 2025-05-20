@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerMapping;
 
 import com.softstream.vagas_online.controllers.exceptions.FieldMessage;
-import com.softstream.vagas_online.dto.UserUpdateDTO;
+import com.softstream.vagas_online.dtos.user.UserUpdateDTO;
 import com.softstream.vagas_online.entities.User;
 import com.softstream.vagas_online.repositores.UserRepository;
 

@@ -5,8 +5,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.softstream.vagas_online.dto.VagaDTO;
-import com.softstream.vagas_online.dto.VagasDisponivelDTO;
+import com.softstream.vagas_online.dtos.vaga.VagaDTO;
+import com.softstream.vagas_online.dtos.vaga.VagasDisponivelDTO;
 import com.softstream.vagas_online.entities.Vaga;
 import com.softstream.vagas_online.repositores.VagaRepository;
 import com.softstream.vagas_online.services.exceptions.ResourceNotFoundException;

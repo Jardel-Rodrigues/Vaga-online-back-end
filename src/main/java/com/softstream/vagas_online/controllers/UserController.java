@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.softstream.vagas_online.dto.UserDTO;
-import com.softstream.vagas_online.dto.UserInsertDTO;
-import com.softstream.vagas_online.dto.UserUpdateDTO;
+import com.softstream.vagas_online.dtos.user.UserDTO;
+import com.softstream.vagas_online.dtos.user.UserInsertDTO;
+import com.softstream.vagas_online.dtos.user.UserUpdateDTO;
 import com.softstream.vagas_online.services.UserService;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;

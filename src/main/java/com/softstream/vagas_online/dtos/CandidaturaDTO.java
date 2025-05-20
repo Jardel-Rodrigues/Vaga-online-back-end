@@ -1,4 +1,4 @@
-package com.softstream.vagas_online.dto;
+package com.softstream.vagas_online.dtos;
 
 import java.time.LocalDate;
 
